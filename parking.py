@@ -12,11 +12,6 @@ def create_and_update_index(index_name, doc_type):
         es.indices.create(index=index_name)
     except Exception:
         pass
-
-    es.indices.put_mapping(
-        index=index_name,
-        doc_type=doc_type,
-    )
     
     return es
 
