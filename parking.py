@@ -12,6 +12,7 @@ def create_and_update_index(index_name, doc_type):
         es.indices.create(index=index_name)
     except Exception:
         pass
+
     
     return es
 
@@ -24,6 +25,7 @@ def insert(docs, es):
 
 if __name__ == "__main__":
     app_key = environ.get("APP_KEY")
+    #es = create_and_update_index('violation-parking-index', 'vehicle')
     #print page_size and num_pages
     page_size_str = argv[1]
     page_size = int(page_size_str.split('=')[1])
@@ -39,10 +41,8 @@ if __name__ == "__main__":
 
     except Exception:
         output = None
-		
     location = 'nc67-uf89'
 
-    #limit_size = int(page_size / num_pages)
 
     # if the output is es, send data to Elasticsearch 
     with Function(app_key) as function:
