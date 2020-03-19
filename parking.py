@@ -15,15 +15,15 @@ def create_and_update_index(index_name, doc_type):
 
 def insert(docs, es):
     for doc in docs:
-        res = es.index(index='violation-parking-index', doc_type='vehicle', body=doc, )
-        #print('Inserting ....')
+        res = es.index(index='parking-violation-index', doc_type='vehicle', body=doc, )
+        #rint('Inserting ....')
         print(res['result'])    
         #print('\n')
 
 if __name__ == "__main__":
     app_key = 'gOC80zDpmRj2bjooeYI5HMKVO'    
 
-    es = create_and_update_index('violation-parking-index', 'vehicle')
+    es = create_and_update_index('parking-violation-index', 'vehicle')
     #print page_size and num_pages
     page_size_str = argv[1]
     page_size = int(page_size_str.split('=')[1])
@@ -32,7 +32,13 @@ if __name__ == "__main__":
         num_pages = int(num_pages_str.split('=')[1])
     except Exception:
         num_pages = None  
-   
+    
+    #print output
+    try:
+        output = argv[3]
+
+    except Exception:
+        output = None
     
     es = Elasticsearch()
     location = 'nc67-uf89'
@@ -70,4 +76,4 @@ if __name__ == "__main__":
             print('Loading to ES')
             h = input("Press 'Enter' to continue...")				
 				
-			
+				
