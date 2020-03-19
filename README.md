@@ -1,4 +1,4 @@
-# STA9760_bigdata2&3
+# STA9760_bigdata Part 2
 Start:
 
 docker-compose up -d
