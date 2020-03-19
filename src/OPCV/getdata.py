@@ -2,7 +2,7 @@ from requests import HTTPError
 from sodapy import Socrata
 
 class Function(object):
-	def __init__(self, app_token, domain="data.cityofnewyork.us"):
+	def __init__(self, app_token, domain="data.cityofnewyork.us",timeout=10000):
 		self.client = Socrata(domain, app_token)
 	def __enter__(self):
 		return self
@@ -22,7 +22,7 @@ class Function(object):
 		except Exception as e:
 			print(f"Something went wrong: {e}")
 			raise
-
+	
 	def get_size(self, location="nc67-uf89"):
 		try:
 			ret = self.client.get(location, select='COUNT(*)')
