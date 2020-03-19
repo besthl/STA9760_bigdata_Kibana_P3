@@ -12,7 +12,7 @@ ElasticSearch: http://localhost:9200 Kibana: http://localhost:5601
 Running python:
 
 
-docker-compose run pyth python parking.py --page_size=10 --num_pages=4
+docker-compose run pyth python parking.py --page_size=20 --num_pages=4
 
 
 Shutting off:
