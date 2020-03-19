@@ -4,6 +4,7 @@ from os import environ
 from math import ceil
 from elasticsearch import Elasticsearch
 from sodapy import Socrata
+from datetime import datetime
 
 def create_and_update_index(index_name, doc_type):
     es = Elasticsearch()
@@ -11,10 +12,37 @@ def create_and_update_index(index_name, doc_type):
         es.indices.create(index=index_name)
     except Exception:
         pass
+
     return es
 
 def insert(docs, es):
     for doc in docs:
+        doc['issue_date'] = datetime.strptime(
+            doc['issue_date'],
+            '%m/%d/%Y',
+        )
+       
+        try:
+            doc['fine_amount'] = float(doc['fine_amount'])
+        except KeyError:
+            pass
+        try:
+            doc['violation'] = str(doc['violation'])
+        except KeyError:
+            pass
+        try:
+            doc['payment_amount'] = float(doc['payment_amount'])
+        except KeyError:
+            pass
+        try:
+            doc['amount_due'] = float(doc['amount_due'])
+        except KeyError:
+            pass
+        try:
+            doc['county'] = str(doc['county'])
+        except KeyError:
+            pass
+        
         res = es.index(index='parking-violation-index', doc_type='vehicle', body=doc, )
         #rint('Inserting ....')
         print(res['result'])    
@@ -46,7 +74,7 @@ if __name__ == "__main__":
 
     # if the output is es, send data to Elasticsearch 
     with Function(app_key) as function:
-        #es = create_and_update_index('violation-parking-index', 'vehicle')
+        
         if num_pages is None: 
             	
 			# extract info
