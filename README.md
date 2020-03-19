@@ -2,6 +2,8 @@
 Start:
 
 docker-compose up -d
+
+
 This will start ElasticSearch and Kibana.
 
 ElasticSearch: http://localhost:9200 Kibana: http://localhost:5601
