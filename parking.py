@@ -34,14 +34,7 @@ def insert(docs, es):
             doc['payment_amount'] = float(doc['payment_amount'])
         except KeyError:
             pass
-        try:
-            doc['amount_due'] = float(doc['amount_due'])
-        except KeyError:
-            pass
-        try:
-            doc['county'] = str(doc['county'])
-        except KeyError:
-            pass
+    
         
         res = es.index(index='parking-violation-index', doc_type='vehicle', body=doc, )
         #rint('Inserting ....')
