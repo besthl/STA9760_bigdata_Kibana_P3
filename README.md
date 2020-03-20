@@ -1,4 +1,6 @@
 # STA9760_bigdata Part 3
+
+[scrnshot](https://raw.githubusercontent.com/besthl/STA9760_bigdata_P3_Kibana/master/screenshot.PNG)
 Start:
 
 docker-compose up -d
