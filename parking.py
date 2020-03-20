@@ -34,15 +34,24 @@ def insert(docs, es):
             doc['payment_amount'] = float(doc['payment_amount'])
         except KeyError:
             pass
-    
+        try:
+            doc['penalty_amount'] = float(doc['penalty_amount'])
+        except KeyError:
+            pass
+        try:
+            doc['reduction_amount'] = float(doc['reduction_amount'])
+        except KeyError:
+            pass
         
         res = es.index(index='parking-violation-index', doc_type='vehicle', body=doc, )
         #rint('Inserting ....')
         print(res['result'])    
         #print('\n')
-
+	
 if __name__ == "__main__":
-    app_key = 'gOC80zDpmRj2bjooeYI5HMKVO'    
+    app_key = environ.get("APP_KEY")
+    if not app_key:
+        app_key = 'gugOZ4hl1StXpGcH5DKjtLZiB'
 
     es = create_and_update_index('parking-violation-index', 'vehicle')
     #print page_size and num_pages
