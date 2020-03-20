@@ -1,4 +1,4 @@
-# STA9760_bigdata Part 3 
+# This is for STA9760_bigdata Project 1 only Part 3 
 
 ![scrnshot](https://raw.githubusercontent.com/besthl/STA9760_bigdata_P3_Kibana/master/screenshot.PNG)
 Start:
