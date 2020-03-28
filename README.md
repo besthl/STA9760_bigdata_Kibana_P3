@@ -25,3 +25,5 @@ curl -X GET {localhost:9200/parking-violation-index} > output.txt
 Shutting off:
 
 docker-compose down
+
+
