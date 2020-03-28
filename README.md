@@ -1,6 +1,6 @@
 # This is for STA9760_bigdata Project 1 only Part 3 
 
-![Plot](screenshots/combined.png)
+![Plot](screenshots/updated graphs.png)
 Start:
 
 docker-compose up -d
