@@ -13,7 +13,6 @@ services:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xms512m"
-    container_name: 'example_elasticsearch'
     ulimits:
       memlock:
         soft: -1
@@ -24,4 +23,3 @@ services:
     image: docker.elastic.co/kibana/kibana:6.3.2
     ports:
       - "5601:5601"
-
