@@ -2,6 +2,7 @@
 
 ![Plot](screenshots/updatedGraphs.png)
 Start:
+export APP_KEY={MY_TOKEN}
 
 docker-compose up -d
 
