@@ -1,4 +1,5 @@
-# This is for STA9760_bigdata Project 1 only Part 3 
+# This is for STA9760_Bigdata_Project 1 Part 3 Kibana
+In this third part, we will stand up an instance of Kibana on top of your ElasticSearch instance in order to visualize and analyze our dataset.
 
 ![Plot](screenshots/updatedGraphs.png)
 Start:
